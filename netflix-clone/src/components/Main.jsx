@@ -8,15 +8,18 @@ const Main  = () => {
     const movie = movies[Math.floor(Math.random()*movies.length)]
 
     useEffect(() => {
-        axios.get(requests.requestHorror).then(() =>{
-            setMovies(response.data.results)
-        }).catch(e => {
-            console.log(e);
-        })
+      fetch(requests.requestHorror)
+  .then(response => response.json())
+  .then(data => setMovies(data.results));
+        // axios.get(requests.requestHorror).then(() =>{
+        //     setMovies(response.data.results)
+        // }).catch(e => {
+        //     console.log(e);
+        // })
     },[])
     console.log(movie)
   return (
-    <div></div>
+    <div className="text-white">{movie.id}</div>
   )
 }
 
