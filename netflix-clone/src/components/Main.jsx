@@ -8,9 +8,13 @@ const Main  = () => {
     const movie = movies[Math.floor(Math.random()*movies.length)]
 
     useEffect(() => {
+      try {
       fetch(requests.requestHorror)
   .then(response => response.json())
   .then(data => setMovies(data.results));
+} catch(e) {
+  console.log(e)
+}
         // axios.get(requests.requestHorror).then(() =>{
         //     setMovies(response.data.results)
         // }).catch(e => {
@@ -19,7 +23,7 @@ const Main  = () => {
     },[])
     console.log(movie)
   return (
-    <div className="text-white">{movie.id}</div>
+    <div className="text-white">ok</div>
   )
 }
 
