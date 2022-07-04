@@ -9,7 +9,7 @@ const Main = () => {
 
   useEffect(() => {
     try {
-      fetch(requests.requestHorror)
+      fetch(requests.requestTopRate)
         .then((response) => response.json())
         .then((data) => setMovies(data.results));
     } catch (e) {
